@@ -14,6 +14,12 @@ inputfile = open(x, "r").read()
 result = ""
 for line in inputfile:
     for character in line:
+        if character in line == 'and'
+            str.replace('a'+'n'+'d', 'and')
+        if character in line == 'th'
+            str.replace('t'+'h', 'th')
+        if character in line == 'er'
+            str.replace('e'+'r', 'er')
         result = result + str(binary[character])
 
 print(int(result))
