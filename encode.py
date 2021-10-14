@@ -6,20 +6,28 @@ binary = ast.literal_eval(contents)
 
 binaryfile.close()
 
-print('Enter file name to convert to binary:')
-x = input()
+x = input('Enter file name to convert to binary: ')
 
 inputfile = open(x, "r").read()
 
+inputlist = [char for char in inputfile]
 result = ""
-for line in inputfile:
-    for character in line:
-        if character in line == 'and'
-            str.replace('a'+'n'+'d', 'and')
-        if character in line == 'th'
-            str.replace('t'+'h', 'th')
-        if character in line == 'er'
-            str.replace('e'+'r', 'er')
-        result = result + str(binary[character])
+num = 0
+
+while num < len(inputlist):
+
+    count = -1 # to determine how many characters to skip for multicharacter words 
+    test = ""
+    for x in range(5):
+        if num+x < len(inputlist) and test + inputlist[num + x] in binary.keys():
+                test += inputlist[num + x]
+                count += 1
+        else:
+            break
+
+    num += 1 + count
+    print(test)
+    print(binary[test])
+    result += binary[test]
 
 print(int(result))
