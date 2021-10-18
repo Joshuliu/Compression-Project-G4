@@ -15,4 +15,20 @@ x = input('Enter file name to convert to text (should be in same folder as this 
 # reading the file user put in
 inputfile = open(directory + '/' + x, "r").read()
 
-inputlist = [char for char in inputfile]
+inputlist = [char for char in inputfile] # converts file input into big list
+result = "" # stores result
+num = 0 # stores which character to start with when iterating through long/short chars
+
+while num < len(inputlist):
+
+	code = "" # stores each long or short character
+	if inputlist[num] == '0': #if short character
+		code = inputlist[num] + inputlist[num+1] + inputlist[num+2] + inputlist[num+3]
+		num += 4
+	elif inputlist[num] == '1': #if long character 
+		code = inputlist[num] + inputlist[num+1] + inputlist[num+2] + inputlist[num+3] + inputlist[num+4] + inputlist[num+5] + inputlist[num+6]
+		num += 7
+
+	result += list(binary.keys())[list(binary.values()).index(code)] # finds char (or special chars) from binary value
+
+print(result) # prints final result
