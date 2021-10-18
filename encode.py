@@ -38,4 +38,4 @@ while num < len(inputlist): # ensures char being iterated is in inputlist
     num += 1 + finalcount # determines next character to iterate over
     result += binary[final] # adds most updated binary numbers to the final result
 
-print(int(result)) # prints integer values of final characters
+print(str(len(result)) + "." + result) # prints "d.b" format of final characters

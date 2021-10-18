@@ -15,6 +15,8 @@ x = input('Enter file name to convert to text (should be in same folder as this 
 # reading the file user put in
 inputfile = open(directory + '/' + x, "r").read()
 
+inputfile = inputfile.split('.')[1] # retrieves binary part from "d.b" format
+
 inputlist = [char for char in inputfile] # converts file input into big list
 result = "" # stores result
 num = 0 # stores which character to start with when iterating through long/short chars
