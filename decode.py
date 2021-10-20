@@ -34,3 +34,5 @@ while num < len(inputlist):
 	result += list(binary.keys())[list(binary.values()).index(code)] # finds char (or special chars) from binary value
 
 print(result) # prints final result
+
+binaryfile = open(directory + "/decode_output.txt", "w+").write(result) # saves to decode_output.txt

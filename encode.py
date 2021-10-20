@@ -38,4 +38,8 @@ while num < len(inputlist): # ensures char being iterated is in inputlist
     num += 1 + finalcount # determines next character to iterate over
     result += binary[final] # adds most updated binary numbers to the final result
 
-print(str(len(result)) + "." + result) # prints "d.b" format of final characters
+db = str(len(result)) + "." + result
+
+print(db) # prints "d.b" format of final characters
+
+binaryfile = open(directory + "/encode_output.txt", "w+").write(db) # saves to encode_output.txt
