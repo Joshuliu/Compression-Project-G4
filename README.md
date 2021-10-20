@@ -24,7 +24,17 @@
   - Starts with 0 
   - Characters:  
     - e, t, a, i, o, n, s, h 
-  - Excluding the first character (always 0, used to indicate short char), Short characters follow a standard pattern going down the list by 0000, 0001, 0010, 0011, 0100, etc. 
+  - Excluding the first character (always 0, used to indicate short char), Short characters follow a standard pattern going down the list by 0000, 0001, 0010, 0011, 0100, etc.
+- How it works 
+  - Ensure binary_code.json is in the same folder as the encode/decode file you are running. 
+    - If binary_code.json is invalid or missing, code will print "binary_code.json invalid or missing. Is it in the same folder?" 
+  - When running either files, both will ask you to input a file to convert to binary or text. Make sure that that file is in the same folder as the encode/decode file, and enter the full filename (e.g. “test.txt”). 
+    - If a file name is invalid, the code will print “File invalid.” and exit. 
+  - Encode.py will convert all the text in the file (assuming each character is in our binary code) to binary. Decode.py will be able to convert that binary code back. 
+    - If a character is not in our binary code, encode.py will simply skip it. If decode.py receives an invalid binary code or an invalid character, it will just put it into the result without changing it. 
+  - After encode.py and decode.py prints their converted results, the data is saved into their files encode_output.txt and decode_output.txt, respectively. 
+    - If any output files are missing, the code will create its output file and properly save the data onto it. 
+
 ## List of Binary Representation of Characters
 |Character |Binary |
 | - | - |
