@@ -1,18 +1,28 @@
 import ast # lib to interpret string into dict
 import os # lib to find path of files
+import sys # lib to exit file
 
-directory = os.path.dirname(os.path.abspath(__file__)) # gets path to current file
-binaryfile = open(directory + "/binary_code.json", "r") # opens file to be read
 
-contents = binaryfile.read() # reads file
-binary = ast.literal_eval(contents) # turns string of dict into actual python dict
-
-binaryfile.close() # closes file
+try: # trying to load our binary code
+    directory = os.path.dirname(os.path.abspath(__file__))
+    binaryfile = open(directory + "/binary_code.json", "r") #reading the file
+    # converting the string into dictionary
+    contents = binaryfile.read()
+    binary = ast.literal_eval(contents)
+    #closing the file
+    binaryfile.close()
+except: # if file is invalid/broken or missing
+    print("binary_code.json invalid or missing. Is it in the same folder?")
+    sys.exit() # exits file immediately if file invalid
 
 # prompts user for file that they want to input
 x = input('Enter file name to convert to binary (should be in same folder as this script): ')
 
-inputfile = open(directory + '/' + x, "r").read() # opens and reads the file that user inputed
+try:
+    inputfile = open(directory + '/' + x, "r").read() # opens and reads the file that user inputed
+except:
+    print("File invalid.")
+    sys.exit() # exits file immediately if file invalid
 
 inputlist = [char for char in inputfile] # converts all chars in the inputfile into a list
 result = "" # stores result
@@ -35,8 +45,11 @@ while num < len(inputlist): # ensures char being iterated is in inputlist
         else: # stop iterating over list if no more chars to test
             break
 
-    num += 1 + finalcount # determines next character to iterate over
-    result += binary[final] # adds most updated binary numbers to the final result
+    if final != '': 
+        num += 1 + finalcount # determines next character to iterate over
+        result += binary[final] # adds most updated binary numbers to the final result
+    else: # if character is not in our binary code...
+        num += 1 # we skip the character
 
 db = str(len(result)) + "." + result
 
